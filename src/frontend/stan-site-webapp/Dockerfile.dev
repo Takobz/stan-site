@@ -1,0 +1,13 @@
+FROM node:24-alpine
+
+WORKDIR '/webapp'
+COPY ./stan-site-webapp/package.json ./
+COPY ./stan-site-webapp/pnpm-lock.yaml ./
+RUN npm install -g pnpm
+RUN pnpm install
+
+EXPOSE 5173
+
+COPY ./stan-site-webapp/ .
+
+CMD ["pnpm", "run", "dev", "--", "--host"]
