@@ -2,7 +2,7 @@ services:
   stan-web-frontend:
     build:
       context: .
-      dockerfile: ./frontend/stan-site-webapp/Dockerfile.dev
+      dockerfile: ./frontend/stan-site-webapp/Dockerfile.dev #TODO: fix the copy command issue here...
     ports:
       - "5173:5173"
     volumes:
