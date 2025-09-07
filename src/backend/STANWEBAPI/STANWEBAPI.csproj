@@ -10,4 +10,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\STANWEBAPI.DOMAIN\STANWEBAPI.DOMAIN.csproj" />
+    <ProjectReference Include="..\STANWEBAPI.Data\STANWEBAPI.Data.csproj" />
+    <ProjectReference Include="..\STANWEBAPI.Infrastructure\STANWEBAPI.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
