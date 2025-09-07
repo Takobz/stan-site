@@ -1,8 +1,8 @@
 services:
   stan-web-frontend:
     build:
-      context: .
-      dockerfile: ./frontend/stan-site-webapp/Dockerfile.dev #TODO: fix the copy command issue here...
+      context: ./frontend/stan-site-webapp
+      dockerfile: Dockerfile.dev 
     ports:
       - "5173:5173"
     volumes:
@@ -13,8 +13,8 @@ services:
 
   stan-web-backend:
     build:
-      context: . #context is relative to where the docker file is.
-      dockerfile: ./backend/Dockerfile.dev
+      context: ./backend
+      dockerfile: Dockerfile.dev
     ports:
       - "8080:8080"
     environment:
