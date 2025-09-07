@@ -48,4 +48,6 @@ msbuild.wrn
 project.assets.json
 project.nuget.cache
 
+appsettings.Development.json
+
 .env
