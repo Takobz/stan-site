@@ -19,8 +19,8 @@ namespace STANWEBAPI.Filters.Validation
                    (int)HttpStatusCode.BadRequest
             );
 
-            var validationContext = new ValidationContext(signUpRequestDTO);
-            if (!validationContext.IsValid(out var errorMessages))
+            var validationContext = new ValidationContext(signUpRequestDTO, null, null);
+            if (!validationContext.IsValid<SignUpRequestDTO>(signUpRequestDTO, out var errorMessages))
             {
                 throw new ApplicationHttpException(
                     ApplicationErrorMessages.BadModel,

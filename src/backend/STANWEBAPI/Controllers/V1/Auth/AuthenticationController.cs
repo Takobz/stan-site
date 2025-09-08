@@ -19,8 +19,6 @@ public class AuthenticationController : ControllerBase
         [FromBody] SignUpRequestDTO requestDTO
     )
     {
-        //TODO: The SignUpRequestValidationFilter's Helper doesn't validate correctly.
-        //If it's too much work to use System.ComponentModel.DataAnnotations; use Fluent Validation instead?
         var result = await Task.FromResult(new BaseResponse<SignUpResponseDTO>("", []));
         return Created("", result);
     }

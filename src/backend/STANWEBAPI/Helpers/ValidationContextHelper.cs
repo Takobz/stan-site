@@ -4,14 +4,15 @@ namespace STANWEBAPI.Helpers
 {
     public static class ValidationContextHelper
     {
-        public static bool IsValid(
+        public static bool IsValid<T>(
             this ValidationContext context,
+            T instance,
             out IEnumerable<string> validationErrorMessages)
         {
             validationErrorMessages = [];
             var results = new List<ValidationResult>();
             var isValid = Validator.TryValidateObject(
-                context.ObjectInstance,
+                instance!,
                 context,
                 results,
                 validateAllProperties: true
