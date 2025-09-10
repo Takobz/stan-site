@@ -10,6 +10,7 @@ namespace STANWEBAPI.DOMAIN.Events
             string surname,
             string email,
             string phoneNumber,
+            string prefferedMethodOfCommunication,
             string? SAIdNumber,
             string? passportNumber
         ) : base(aggregateId, EventTypes.ClientCreatedEvent)
@@ -18,6 +19,7 @@ namespace STANWEBAPI.DOMAIN.Events
             Surname = surname;
             Email = email;
             PhoneNumber = phoneNumber;
+            PrefferedMethodOfCommunication = prefferedMethodOfCommunication;
             SouthAfricanIdentityNumber = SAIdNumber;
             PassportNumber = passportNumber;
         }
@@ -26,6 +28,7 @@ namespace STANWEBAPI.DOMAIN.Events
         public string Surname { get; internal set; }
         public string Email { get; internal set; }
         public string PhoneNumber { get; internal set; }
+        public string PrefferedMethodOfCommunication { get; internal set; }
         public string? SouthAfricanIdentityNumber { get; internal set; }
         public string? PassportNumber { get; internal set; }
 
