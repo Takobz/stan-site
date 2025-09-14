@@ -13,11 +13,11 @@ namespace STANWEBAPI.Infrastructure.ServiceCollectionExtensions
             this IServiceCollection services,
             MongoDBOptions options)
         {
-            services.AddTransient<IClientRepository, ClientRepository>();
-            services.AddScoped<IMongoClient>(sp =>
+            services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddSingleton<IMongoClient>(sp =>
             {
                 return new MongoClient(
-                    options.DatabaseName
+                    options.ConnectionString
                 );
             });
 
