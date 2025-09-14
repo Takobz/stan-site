@@ -1,11 +1,24 @@
 using System.Text.Json;
+using STANWEBAPI.Data.Options;
 using STANWEBAPI.Extensions;
+using STANWEBAPI.Infrastructure.ServiceCollectionExtensions;
 using STANWEBAPI.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDTOValidatorFilters();
+
+builder.Services.Configure<MongoDBOptions>(
+   builder.Configuration.GetSection(MongoDBOptions.SectionName)
+);
+
+var mongoDBOptions = new MongoDBOptions();
+var options = builder.Configuration.GetSection(MongoDBOptions.SectionName);
+options.Bind(mongoDBOptions);
+builder.Services.AddEventStoreData(
+    mongoDBOptions
+);
 
 builder.Services.AddControllers()
     .ConfigureApiBehaviorOptions(options =>

@@ -5,6 +5,12 @@ namespace STANWEBAPI.Data.MongoDB.DataModels
 {
 #pragma warning disable CS8618
 
+    /*
+    Avoiding using constructors/method that set these properties.
+    Might cause overhead when mapping these objects from database.
+    Better to keep them close to the database structure as possible
+    No business logic just dump classes that hold data.
+    */
     public class ClientCreatedEvent : EventData
     {
         [BsonElement("name")]
