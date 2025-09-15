@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using STANWEBAPI.DOMAIN.ValueObjects;
 
 namespace STANWEBAPI.Models.DTOs.Requests
 {
@@ -17,8 +18,11 @@ namespace STANWEBAPI.Models.DTOs.Requests
         [Required(ErrorMessage = "password is a required field")]
         public string Password { get; init; } = string.Empty;
 
-        [Required(ErrorMessage = "phone is numer is a required field")]
+        [Required(ErrorMessage = "phone number is a required field")]
         public string PhoneNumber  { get; init; } = string.Empty;
+
+        [Required(ErrorMessage = "client type is a required field")]
+        public string ClientType { get; init; } = ClientTypes.MainMember;
 
         public string? SouthAfricanIdentityNumber { get; init; } = string.Empty;
 
@@ -30,6 +34,7 @@ namespace STANWEBAPI.Models.DTOs.Requests
             string email,
             string password,
             string phoneNumber,
+            string clientType,
             string? southAfricanIdentityNumber = null,
             string? passportNumber = null)
         {
@@ -38,6 +43,7 @@ namespace STANWEBAPI.Models.DTOs.Requests
             Email = email;
             Password = password;
             PhoneNumber = phoneNumber;
+            ClientType = clientType;
             SouthAfricanIdentityNumber = southAfricanIdentityNumber ?? string.Empty;
             PassportNumber = passportNumber ?? string.Empty;
         }
