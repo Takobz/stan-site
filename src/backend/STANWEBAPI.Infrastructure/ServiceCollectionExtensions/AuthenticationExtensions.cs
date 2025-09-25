@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using STANWEBAPI.Infrastructure.Security;
 
 namespace STANWEBAPI.Infrastructure.ServiceCollectionExtensions
 {
@@ -9,6 +10,14 @@ namespace STANWEBAPI.Infrastructure.ServiceCollectionExtensions
         )
         {
             return services;
+        }
+
+        public static IServiceCollection AddPasswordHasher(
+            this IServiceCollection services
+        )
+        {
+            services.AddSingleton<IPasswordHasher, PassWordHasher>();
+            return services;   
         }
     }
 }

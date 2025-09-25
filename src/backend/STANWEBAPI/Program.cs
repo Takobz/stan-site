@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDTOValidatorFilters();
+builder.Services.AddPasswordHasher();
 
 builder.Services.Configure<MongoDBOptions>(
    builder.Configuration.GetSection(MongoDBOptions.SectionName)

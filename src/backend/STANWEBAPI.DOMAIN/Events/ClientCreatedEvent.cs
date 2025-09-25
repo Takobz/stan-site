@@ -31,10 +31,5 @@ namespace STANWEBAPI.DOMAIN.Events
         public string PrefferedMethodOfCommunication { get; internal set; }
         public string? SouthAfricanIdentityNumber { get; internal set; }
         public string? PassportNumber { get; internal set; }
-
-        /*
-        * Reminder: Password will be stored in a different table.
-        * This is to avoid traversing events to just password.
-        */
     }
 }
